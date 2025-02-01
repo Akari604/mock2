@@ -25,8 +25,8 @@ Route::get('/attendance/{id}', [UserController::class, 'getDetail']);
 Route::get('/stamp_correction_request/list', [UserController::class, 'getRequest']);
 
 Route::get('/admin/attendance/list', [AdminController::class, 'getList']);
-// Route::get('/attendance/{id}', [AdminController::class, 'getDetail']);
+Route::get('/attendance/{id}', [AdminController::class, 'getAdminDetail']);
 Route::get('/admin/staff/list', [AdminController::class, 'getStaff']);
-Route::get('/admin/staff/list/{id}', [AdminController::class, 'getStaff']);
-// Route::get('/stamp_correction_request/list', [AdminController::class, 'getRequest']);
+Route::get('/admin/staff/list/{id}', [AdminController::class, 'getStaffId']);
+Route::get('/stamp_correction_request/list', [AdminController::class, 'getAdminRequest']);
 Route::get('/stamp_correction_request/approve/{attendance_correct_request', [AdminController::class, 'getApprove']);

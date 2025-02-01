@@ -1,0 +1,47 @@
+.header {
+    margin: 0;
+    background-color: #000;
+}
+
+.header-ttl {
+    padding: 10px 10px;
+}
+
+.header-content {
+    display: flex;
+}
+
+.header-button {
+    position: relative;
+    left: 50%;
+    top: 15px;
+}
+
+.header-button a {
+    margin-right: 25px;
+    font-size: 1.2rem;
+}
+
+.top_button {
+    color: #fff;
+    text-decoration: none;
+    background-color: #000;
+}
+
+.logout_button button {
+    font-size: 1.1rem;
+    color: #fff;
+    border: none;
+    background-color: #000;
+    margin-left: 240px;
+    position: relative;
+    top: -30px;
+}
+
+h2 {
+    border-left: 1px solid #000;
+    border-width: 0.5rem;
+    padding: 0 20px;
+    margin-left: 250px;
+    margin-top: 70px;
+}
