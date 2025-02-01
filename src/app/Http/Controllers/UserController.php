@@ -10,4 +10,20 @@ class UserController extends Controller
     {
         return view('index');
     }
+
+    public function getDetail()
+    {
+        return view('user_detail');
+    }
+
+    public function getList()
+    {
+        return view('user_list');
+    }
+
+    public function getRequest()
+    {
+        return view('user_request');
+    }
 }
+

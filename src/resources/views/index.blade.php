@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>勤怠登録出勤前</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
 </head>
 <body>
     <header class="header">
@@ -18,12 +20,17 @@
                 <a href="/attendance/list" class="top_button">
                     勤怠一覧
                 </a>
-                <a href="/attendance" class="top_button">
+                <a href="/stamp_correction_request/list" class="top_button">
                     申請
                 </a>
+                <form class="logout_button">
+                    <button class="logout_button">ログアウト</button>
+                </form>
             </div>
+        </div>
     </header>
     <main class="main">
-        <div class="">
+        <div class="main-content">
+            <div class="">
 </body>
 </html>
