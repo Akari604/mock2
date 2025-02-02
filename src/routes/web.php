@@ -19,10 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->group(function () {
 Route::get('/attendance', [UserController::class, 'index']);
 Route::get('/attendance/list', [UserController::class, 'getList']);
 Route::get('/attendance/{id}', [UserController::class, 'getDetail']);
 Route::get('/stamp_correction_request/list', [UserController::class, 'getRequest']);
+});
 
 Route::get('/admin/attendance/list', [AdminController::class, 'getList']);
 Route::get('/attendance/{id}', [AdminController::class, 'getAdminDetail']);
