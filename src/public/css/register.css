@@ -1,0 +1,60 @@
+.header {
+    margin: 0;
+}
+
+.header-ttl {
+    background-color: #000;
+    padding: 10px 10px;
+}
+
+.register_content-heading {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 80px;
+}
+
+.form_group-ttl {
+    display: block;
+    margin: 0 380px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.form_input-text input {
+    padding: 10px 10px;
+    width: 45%;
+    display: block;
+    margin: 0 auto;
+}
+
+.form__error {
+    margin-left: 28%;
+    margin-top: 15px;
+    color: red;
+}
+
+.form_button button {
+    padding: 10px 10px;
+    width: 45%;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: #000;
+    display: block;
+    margin: 0 auto;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.login_link {
+    text-align: center;
+}
+ 
+.login_link a {
+    text-decoration: none;
+    color: rgb(26, 120, 171);
+    font-size: 1rem;
+}
