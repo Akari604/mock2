@@ -20,12 +20,15 @@
                 <a href="/admin/staff/list" class="top_button">
                     スタッフ一覧
                 </a>
-                <a href="/stamp_correction_request/list" class="top_button">
-                    申請一覧
-                </a>
-                <form class="logout_button">
-                    <button class="logout_button">ログアウト</button>
-                </form>
+                @if (Auth::check())
+                    <a href="/stamp_correction_request/list" class="top_button">
+                        申請一覧
+                    </a>
+                    <form action="/admin/logout" class="logout_button" method="post">
+                        @csrf
+                        <button class="logout_button">ログアウト</button>
+                    </form>
+                @endif
             </div>
         </div>
     </header>

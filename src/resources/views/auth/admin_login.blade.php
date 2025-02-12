@@ -20,7 +20,7 @@
             <div class="login_content-heading">
                 <h2>ログイン</h2>
             </div>
-            <form class="login-form_group" action="/admin_login" method="post">
+            <form class="login-form_group" action="/admin/login" method="post">
                 @csrf
                 <div class="form_group">
                     <div class="form_group-title">

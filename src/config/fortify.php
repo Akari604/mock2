@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'guard' => 'web',
+    'guard' => 'web', 
 
     /*
     |--------------------------------------------------------------------------
@@ -75,7 +75,7 @@ return [
     */
 
     'home' => RouteServiceProvider::HOME,
-    'admin' => RouteServiceProvider::ADMIN,
+    'admin.home' => RouteServiceProvider::ADMIN_HOME,
 
     /*
     |--------------------------------------------------------------------------
