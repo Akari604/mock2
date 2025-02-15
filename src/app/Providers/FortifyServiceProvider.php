@@ -13,6 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Fortify;
+use App\Http\Requests\AdminLoginRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
@@ -28,12 +29,11 @@ class FortifyServiceProvider extends ServiceProvider
     {
         if (request()->is('admin/*')) {
             config()->set('fortify.guard', 'admin');
-            config()->set('fortify.home', '/admin/login');
 
             $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
                 public function toResponse($request)
                 {
-                    return redirect('/');
+                    return redirect('/admin');
                 }
             });
         }
@@ -60,24 +60,7 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(10)->by($email . $request->ip());
         });
 
-        Fortify::authenticateUsing(function (Request $request) {
-            $user = User::where('email', $request->email)->first();
-    
-            if ($user &&
-                Hash::check($request->password, $user->password)) {
-                return $user;
-            }
-        });
-
-        Fortify::authenticateUsing(function (Request $request) {
-            $admin = Admin::where('email', $request->email)->first();
-    
-            if ($admin &&
-                Hash::check($request->password, $admin->password)) {
-                return $admin;
-            }
-        });
-
+        $this->app->bind(FortifyLoginRequest::class, AdminLoginRequest::class);
         $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
         $this->app->bind(FortifyRegisterRequest::class, RegisterRequest::class);
     }
