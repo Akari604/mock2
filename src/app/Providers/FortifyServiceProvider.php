@@ -16,8 +16,6 @@ use Laravel\Fortify\Fortify;
 use App\Http\Requests\AdminLoginRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Models\User;
-use App\Models\Admin;
 use Laravel\Fortify\Contracts\LogoutResponse;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -58,6 +56,10 @@ class FortifyServiceProvider extends ServiceProvider
             $email = (string) $request->email;
 
             return Limit::perMinute(10)->by($email . $request->ip());
+        });
+
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify_email');
         });
 
         $this->app->bind(FortifyLoginRequest::class, AdminLoginRequest::class);

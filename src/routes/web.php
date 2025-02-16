@@ -26,7 +26,7 @@ Route::get('/admin', function () {
 
 Route::middleware('auth:web')->group(function () {
     Route::prefix('attendance')->group(function () {
-        Route::get('/', [UserController::class, 'index']);
+        Route::get('/', [UserController::class, 'index'])->middleware('verified');
         Route::get('/list', [UserController::class, 'getList']);
         Route::get('/{id}', [UserController::class, 'getDetail']);
     });   

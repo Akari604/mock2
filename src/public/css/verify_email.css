@@ -1,0 +1,12 @@
+.header {
+    margin: 0;
+    background-color: #000;
+}
+
+.header-ttl {
+    padding: 10px 10px;
+}
+
+.header-content {
+    display: flex;
+}
