@@ -17,5 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(5)->create();
         Admin::factory(5)->create();
+
+        $this->call([
+            StatusesTableSeeder::class,
+        ]);
     }
 }
