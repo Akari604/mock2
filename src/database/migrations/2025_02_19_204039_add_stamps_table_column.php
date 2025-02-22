@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWorkStatusesTable extends Migration
+class AddStampsTableColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateWorkStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('work_statuses', function (Blueprint $table) {
-            $table->id();
-            $table->string('status')->comment('勤務状態');
-            $table->timestamps();
+        Schema::table('stamps', function (Blueprint $table) {
+            $table->integer('status')->default(2)->comment('勤務状態')->after('user_id');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateWorkStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('work_statuses');
+        Schema::table('stamps', function (Blueprint $table) {
+            $table->dropColumn('status'); 
+        });
     }
 }

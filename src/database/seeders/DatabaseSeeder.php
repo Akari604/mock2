@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         Admin::factory(5)->create();
 
         $this->call([
-            StatusesTableSeeder::class,
         ]);
     }
 }

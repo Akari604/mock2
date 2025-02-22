@@ -34,6 +34,26 @@
     </header>
     <main class="main">
         <div class="main-content">
-            <div class="">
+            <div class="work-status">
+                <p class="work-status_text">{{\App\Enums\Status::getDescription($status)}}</p>  
+            </div>
+            <div class="current-date_time">
+                <p class="current-date">{{ $now_format }}</p>
+                <p class="current-time">{{ $now }}</P>
+            </div>
+            <div class="work-time_button">
+                <form class="time_button" action="/attendance/stamp" method="get" id="time_button">
+                    @csrf
+                    <div class="button-submit">
+                        @if($status === 2)
+                            <button type="submit" class="going_button">出勤</button>
+                        @else
+                            <button type="submit" class="going_button">退勤</button>
+                            <button type="submit" class="going_button">休憩</button>
+                        @endif
+                    </div>
+                </form>
+            </div>
+        </div>
 </body>
 </html>
