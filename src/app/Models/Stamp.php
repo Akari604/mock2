@@ -18,4 +18,9 @@ class Stamp extends Model
         'total_rest',
         'total_work',
     ];
+
+    public function rests()
+    {
+        return $this->hasMany(Rest::class);
+    }
 }

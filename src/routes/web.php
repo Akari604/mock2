@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StampController;
+// use App\Http\Controllers\RestController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -28,8 +29,10 @@ Route::get('/admin', function () {
 Route::middleware('auth:web')->group(function () {
     Route::prefix('attendance')->group(function () {
         Route::get('/', [UserController::class, 'index'])->middleware('verified');
-        Route::get('/stamp', [StampController::class, 'clockIn']);
-        Route::get('/stamp', [StampController::class, 'clockOut']);
+        Route::get('/start/stamp', [StampController::class, 'clockIn']);
+        Route::get('/end/stamp', [StampController::class, 'clockOut']);
+        Route::get('/start/rest', [RestController::class, 'takeBreak']);
+        Route::get('/end/rest', [RestController::class, 'doneBreak']);
         Route::get('/list', [UserController::class, 'getList']);
         Route::get('/{id}', [UserController::class, 'getDetail']);
     });   

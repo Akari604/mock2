@@ -6,6 +6,8 @@
     <title>勤怠登録出勤前</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 </head>
 <body>
     <header class="header">
@@ -39,21 +41,38 @@
             </div>
             <div class="current-date_time">
                 <p class="current-date">{{ $now_format }}</p>
-                <p class="current-time">{{ $now }}</P>
+                <p class="current-time">{{ $now_time }}</P>
             </div>
             <div class="work-time_button">
-                <form class="time_button" action="/attendance/stamp" method="get" id="time_button">
+                @if($status === 1)
+                <form class="time_button" action="/attendance/start/stamp" method="get" id="start-stamp_button">
                     @csrf
-                    <div class="button-submit">
-                        @if($status === 2)
-                            <button type="submit" class="going_button">出勤</button>
-                        @else
-                            <button type="submit" class="going_button">退勤</button>
-                            <button type="submit" class="going_button">休憩</button>
-                        @endif
-                    </div>
+                    <button type="submit" class="going_button" id="show_btn">出勤</button>
                 </form>
+                @elseif($status === 2)
+                <form class="time_button" action="/attendance/end/stamp" method="get" id="end-stamp_button">
+                    @method('PUT')
+                    @csrf
+                    <button type="submit" class="out_button" id="show_btn">退勤</button>
+                </form>
+                <form class="time_button" action="/attendance/start/rest" method="get" id="start-rest_button">
+                    @csrf
+                    <button type="submit" class="break_button" id="show_btn">休憩</button>
+                </form>
+                @elseif($status === 3)
+                <form class="time_button" action="/attendance/end/rest" method="get" id="end-rest_button">
+                    @csrf
+                    <button type="submit" class="end-break_button" id="show_btn">休憩戻</button>
+                </form>
+                @elseif($status === 4)
+                <div> 
+                    <p class="good-job">お疲れ様でした。</p>
+                </div>
+                @endif
             </div>
         </div>
+    </main>
+    <script> 
+    </script>
 </body>
 </html>

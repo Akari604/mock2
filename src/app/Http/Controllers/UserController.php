@@ -12,13 +12,12 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $status = 2;
-        CarbonImmutable::setLocale('ja');
+        $status = 1; 
         $now = CarbonImmutable::now();
         $now_format = $now->format('Y年m月d日(D)');
-        $now->format('N') === '7';
+        $now_time = $now->format('H:i');
 
-        return view('index', compact('user', 'status', 'now_format', 'now'));
+        return view('index', compact('user', 'status', 'now_format', 'now_time'));
     }
 
     public function getDetail()
