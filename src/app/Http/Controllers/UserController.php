@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $status = 1; 
+        $status = 4; 
         $now = CarbonImmutable::now();
         $now_format = $now->format('Y年m月d日(D)');
         $now_time = $now->format('H:i');

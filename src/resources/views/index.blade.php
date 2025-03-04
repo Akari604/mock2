@@ -50,22 +50,24 @@
                     <button type="submit" class="going_button" id="show_btn">出勤</button>
                 </form>
                 @elseif($status === 2)
-                <form class="time_button" action="/attendance/end/stamp" method="get" id="end-stamp_button">
-                    @method('PUT')
-                    @csrf
-                    <button type="submit" class="out_button" id="show_btn">退勤</button>
-                </form>
-                <form class="time_button" action="/attendance/start/rest" method="get" id="start-rest_button">
-                    @csrf
-                    <button type="submit" class="break_button" id="show_btn">休憩</button>
-                </form>
+                <div class="work-time_middle">
+                    <form class="time_button" action="/attendance/end/stamp" method="get" id="end-stamp_button">
+                        @method('PUT')
+                        @csrf
+                        <button type="submit" class="out_button" id="show_btn">退勤</button>
+                    </form>
+                    <form class="time_button" action="/attendance/start/rest" method="get" id="start-rest_button">
+                        @csrf
+                        <button type="submit" class="break_button" id="show_btn">休憩</button>
+                    </form>
+                </div>
                 @elseif($status === 3)
                 <form class="time_button" action="/attendance/end/rest" method="get" id="end-rest_button">
                     @csrf
                     <button type="submit" class="end-break_button" id="show_btn">休憩戻</button>
                 </form>
                 @elseif($status === 4)
-                <div> 
+                <div class="good-job_text"> 
                     <p class="good-job">お疲れ様でした。</p>
                 </div>
                 @endif

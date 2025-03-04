@@ -36,4 +36,57 @@
     margin-left: 240px;
     position: relative;
     top: -30px;
+} 
+
+.work-status_text {
+    display: block;
+    margin: 0 auto;
+}
+
+.work-status_text {
+    margin-top: 200px;
+    border: 1px solid #c8c7c7;
+    border-radius: 45%;
+    width: fit-content;
+    padding: 2px 15px;
+    text-align: center;
+    font-size: 13px;
+    background-color: #c8c7c7;
+}
+
+.current-date_time {
+    text-align: center;
+}
+
+.current-date {
+    font-size: 25px;
+}
+
+.current-time {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.work-time_button button {
+    display: block;
+    margin: 0 auto;
+    border-radius: 10%;
+    padding: 2px 40px;
+    font-size: 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+.work-time_middle {
+    display: flex;
+    justify-content: center;
+}
+
+.good-job_text {
+    text-align: center;
+}
+
+.good-job {
+    font-size: 20px;
+    font-weight: bold;
 }
