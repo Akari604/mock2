@@ -52,7 +52,6 @@
                 @elseif($status === 2)
                 <div class="work-time_middle">
                     <form class="time_button" action="/attendance/end/stamp" method="get" id="end-stamp_button">
-                        @method('PUT')
                         @csrf
                         <button type="submit" class="out_button" id="show_btn">退勤</button>
                     </form>
