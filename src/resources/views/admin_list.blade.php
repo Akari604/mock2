@@ -35,6 +35,12 @@
             <div class="main-content_list">
                 <h2>の勤怠</h2>
             </div>
+            <div class="mian-content_date">
+                <form action="">
+                <button onclick="back()">← 前日</button>
+                <p class="calender">{{ $thisMonth }}</p>
+                <button onclick="next()">翌日 →</button>
+            </div>
         </div>
     </main>
 </body>

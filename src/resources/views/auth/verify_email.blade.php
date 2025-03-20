@@ -17,12 +17,22 @@
     </header>
     <main>
         <div class="login_content">
-            <div class="login_content-heading">
-                <h2>ご登録ありがとうございます。</h2>
-            </div>
             <div class="form_group">
                 <div class="form_group-title">
-                    <p>ご入力いただいたメールアドレスへ認証リンクを送信しましたので、クリックして認証を完了させてください。</p>
+                    <p>ご登録していただいたメールアドレスに認証メールを送付しました。</p>
+                    <p>メール認証を完了してください。</p>
+                </div>
+                <div class="certification_button">
+                    <form action="/email/verify/{id}/{hash}" class="link-certification" method="get"> 
+                        @csrf
+                        <button class="button-certification"  type="submit">認証はこちら</button>
+                    </form>
+                </div>
+                <div class="resend_email">
+                    <form action="/email/verification-notification" class="link-resend_email" method="post"> 
+                        @csrf
+                        <button class="button-resend_email" type="sibmit">認証メールを再送する</button>
+                    </form>
                 </div>
             </div>
         </div>

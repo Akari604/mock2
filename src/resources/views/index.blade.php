@@ -23,13 +23,13 @@
                     勤怠一覧
                 </a>
                 @if (Auth::check())
-                    <a href="/stamp_correction_request/list" class="top_button">
-                        申請
-                    </a>
-                    <form action="/logout" class="logout_button" method="post">
-                    @csrf
-                        <button class="logout_button">ログアウト</button>
-                    </form>
+                <a href="/stamp_correction_request/list" class="top_button">
+                    申請
+                </a>
+                <form action="/logout" class="logout_button" method="post">
+                @csrf
+                    <button class="logout_button">ログアウト</button>
+                </form>
                 @endif
             </div>
         </div>
@@ -47,23 +47,23 @@
                 @if($status === 1)
                 <form class="time_button" action="/attendance/start/stamp" method="get" id="start-stamp_button">
                     @csrf
-                    <button type="submit" class="going_button" id="show_btn">出勤</button>
+                    <button type="submit" class="going_button" id="start-stamp_button">出勤</button>
                 </form>
                 @elseif($status === 2)
                 <div class="work-time_middle">
                     <form class="time_button" action="/attendance/end/stamp" method="get" id="end-stamp_button">
                         @csrf
-                        <button type="submit" class="out_button" id="show_btn">退勤</button>
+                        <button type="submit" class="out_button" id="two_button">退勤</button>
                     </form>
                     <form class="time_button" action="/attendance/start/rest" method="get" id="start-rest_button">
                         @csrf
-                        <button type="submit" class="break_button" id="show_btn">休憩</button>
+                        <button type="submit" class="break_button" id="two_button">休憩</button>
                     </form>
                 </div>
                 @elseif($status === 3)
                 <form class="time_button" action="/attendance/end/rest" method="get" id="end-rest_button">
                     @csrf
-                    <button type="submit" class="end-break_button" id="show_btn">休憩戻</button>
+                    <button type="submit" class="end-break_button" id="end-rest_button">休憩戻</button>
                 </form>
                 @elseif($status === 4)
                 <div class="good-job_text"> 
@@ -73,7 +73,5 @@
             </div>
         </div>
     </main>
-    <script> 
-    </script>
 </body>
 </html>

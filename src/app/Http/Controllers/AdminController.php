@@ -3,12 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\CarbonPeriod;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
-    public function getList()
+    public function getList(Request $request)
     {
-        return view('admin_list');
+         // 当月を取得
+         $year = $request->input('year') ?? Carbon::today()->format('Y');
+         $month = $request->input('month') ?? Carbon::today()->format('m');
+         $thisMonth = Carbon::Create($year, $month, 01);
+         // 前月を取得
+         $previousMonth = $thisMonth->copy()->subMonth();
+         // 翌月を取得
+         $nextMonth = $thisMonth->copy()->addMonth();
+
+        return view('admin_list', compact('thisMonth', 'previousMonth', 'nextMonth'));
     }
     
     public function getAdminDetail()

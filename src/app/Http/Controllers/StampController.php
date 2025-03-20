@@ -8,7 +8,6 @@ use App\Models\Rest;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Enums\Status;
-use App\Models\Stamp;
 // use App\Http\Requests\StampRequest;
 
 class StampController extends Controller
@@ -36,7 +35,7 @@ class StampController extends Controller
     public function clockOut(Request $request)
     {
         // 勤務終了
-        $stamps = Stamp::get('id')->latest()->first();
+        $stamps = Stamp::get('id')->first();
         $stamps->update([
             'end_work' => Carbon::now(),
             'status' => 4,
