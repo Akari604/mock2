@@ -11,10 +11,10 @@ use BenSampo\Enum\Enum;
  */
 final class Status extends Enum
 {
-    const Off = 1;
-    const Going = 2;
-    const Bleak = 3;
-    const Out = 4; 
+    const Off = 0;
+    const Going = 1;
+    const Bleak = 2;
+    const Out = 3; 
 
     public static function getDescription($value): string
     {

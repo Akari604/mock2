@@ -47,9 +47,9 @@ Route::middleware('auth:web')->group(function () {
     Route::prefix('attendance')->group(function () {
         Route::get('/', [UserController::class, 'index'])->middleware('verified');
         Route::get('/start/stamp', [StampController::class, 'clockIn']);
-        Route::get('/end/stamp', [StampController::class, 'clockOut']);
-        Route::get('/start/rest', [RestController::class, 'takeBreak']);
-        Route::get('/end/rest', [RestController::class, 'doneBreak']);
+        Route::get('/end/stamp/{stampId}', [StampController::class, 'clockOut']);
+        Route::get('/start/rest/{stampId}', [RestController::class, 'takeBreak']);
+        Route::get('/end/rest/{stampId}', [RestController::class, 'doneBreak']);
         Route::get('/list', [UserController::class, 'getList']);
         Route::get('/{id}', [UserController::class, 'getDetail']);
     });   
