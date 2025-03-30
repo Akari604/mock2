@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\CarbonPeriod;
 use Carbon\Carbon;
+use App\Models\Stamp;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -18,8 +20,9 @@ class AdminController extends Controller
          $previousMonth = $thisMonth->copy()->subMonth();
          // 翌月を取得
          $nextMonth = $thisMonth->copy()->addMonth();
+         $stamps = Stamp::all();
 
-        return view('admin_list', compact('thisMonth', 'previousMonth', 'nextMonth'));
+        return view('admin_list', compact('thisMonth', 'previousMonth', 'nextMonth', 'stamps'));
     }
     
     public function getAdminDetail()

@@ -15,13 +15,15 @@ class StampController extends Controller
     {
         // 勤務開始
         $user = Auth::user();
-        $oldStamp = Stamp::where('user_id', $user->id)->latest()->first();
+        $stamp = Stamp::all();
+        $oldStamp = Stamp::where('user_id', $user->id)->latest('created_at')->first();
         if ($oldStamp) {
             $timestampClockIn = new Carbon($oldStamp->clockIn);
             $timestampDay = $timestampClockIn->startOfDay();
         } else {
             $timestamp = Stamp::create([
                 'user_id' => $user->id,
+                'name' => $user->name,
                 'stamp_date' => Carbon::now(),
                 'start_work' => Carbon::now(),
                 'status' => 1,

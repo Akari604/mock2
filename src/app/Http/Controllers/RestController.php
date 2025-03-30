@@ -13,12 +13,7 @@ class RestController extends Controller
 {
     public function takeBreak($stampId)
     {
-        // 打刻のIDを取得する
-        // リクエストからかログインユーザーから取得
-        // Stamp::find(打刻のID)
-
         // 休憩開始
-        
         $stamp = Stamp::find($stampId);
         $stamp->update([
             'status' => 2,

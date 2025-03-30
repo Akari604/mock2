@@ -44,36 +44,34 @@
                 <p class="current-time">{{ $now_time }}</P>
             </div>
             <div class="work-time_button">
+            @foreach($stamps as $stamp)
                 @if($status === 0)
                 <form class="time_button" action="/attendance/start/stamp" method="get" id="start-stamp_button">
                     @csrf
                     <button type="submit" class="going_button" id="start-stamp_button">出勤</button>
                 </form>
                 @elseif($status === 1)
-                    <div class="work-time_middle">
-                        @foreach($stamps as $stamp)
-                        <form class="time_button" action="/attendance/end/stamp/{{ $stamp->id }}" method="get" id="end-stamp_button">
-                            @csrf
-                            <button type="submit" class="out_button" id="two_button">退勤</button>
-                        </form>
-                        <form class="time_button" action="/attendance/start/rest/{{ $stamp->id }}" method="get" id="start-rest_button">
-                            @csrf
-                            <button type="submit" class="break_button" id="two_button">休憩</button>
-                        </form>
-                        @endforeach
-                    </div>
-                @elseif($status === 2)
-                    @foreach($stamps as $stamp)
-                    <form class="time_button" action="/attendance/end/rest/{{ $stamp->id }}" method="get" id="end-rest_button">
+                <div class="work-time_middle">
+                    <form class="time_button" action="/attendance/end/stamp/{{ $stamp->id }}" method="get" id="end-stamp_button">
                         @csrf
-                        <button type="submit" class="end-break_button" id="end-rest_button">休憩戻</button>
+                        <button type="submit" class="out_button" id="two_button">退勤</button>
                     </form>
-                    @endforeach
+                    <form class="time_button" action="/attendance/start/rest/{{ $stamp->id }}" method="get" id="start-rest_button">
+                        @csrf
+                        <button type="submit" class="break_button" id="two_button">休憩</button>
+                    </form>
+                </div>
+                @elseif($status === 2)
+                <form class="time_button" action="/attendance/end/rest/{{ $stamp->id }}" method="get" id="end-rest_button">
+                    @csrf
+                    <button type="submit" class="end-break_button" id="end-rest_button">休憩戻</button>
+                </form>
                 @elseif($status === 3)
                 <div class="good-job_text"> 
                     <p class="good-job">お疲れ様でした。</p>
                 </div>
                 @endif
+            @endforeach
             </div>
         </div>
     </main>

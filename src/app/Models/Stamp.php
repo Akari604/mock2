@@ -11,6 +11,7 @@ class Stamp extends Model
 
     protected $fillable = [
         'user_id',
+        'name',
         'status',
         'stamp_date',
         'start_work',
