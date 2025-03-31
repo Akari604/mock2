@@ -46,12 +46,12 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::middleware('auth:web')->group(function () {
     Route::prefix('attendance')->group(function () {
         Route::get('/', [UserController::class, 'index'])->middleware('verified');
+        Route::get('/list', [UserController::class, 'getList']);
+        Route::get('/{id}', [UserController::class, 'getDetail']);
         Route::get('/start/stamp', [StampController::class, 'clockIn']);
         Route::get('/end/stamp/{stampId}', [StampController::class, 'clockOut']);
         Route::get('/start/rest/{stampId}', [RestController::class, 'takeBreak']);
         Route::get('/end/rest/{stampId}', [RestController::class, 'doneBreak']);
-        Route::get('/list', [UserController::class, 'getList']);
-        Route::get('/{id}', [UserController::class, 'getDetail']);
     });   
      Route::get('/stamp_correction_request/list', [UserController::class, 'getRequest']);
 });
@@ -72,12 +72,10 @@ Route::prefix('admin')->group(function () {
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/attendance/list', [AdminController::class, 'getList']);
-        Route::get('/previous/list', [CalendarController::class, 'getPrevious']);
-        Route::get('/next/list', [CalendarController::class, 'getNext']);
         Route::get('/staff/list', [AdminController::class, 'getStaff']);
-        Route::get('/staff/list/{id}', [AdminController::class, 'getStaffId']);
+        Route::get('/attendance/staff/{id}', [AdminController::class, 'getStaffId']);
     });
     Route::get('/attendance/{id}', [AdminController::class, 'getAdminDetail']);
     Route::get('/stamp_correction_request/list', [AdminController::class, 'getAdminRequest']);
-    Route::get('/stamp_correction_request/approve/{attendance_correct_request', [AdminController::class, 'getApprove']);
+    Route::get('/stamp_correction_request/approve/{attendance_correct_request}', [AdminController::class, 'getApprove']);
 });
