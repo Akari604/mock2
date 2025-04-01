@@ -31,8 +31,8 @@
     </header>
     <main class="main">
         <div class="main-content">
-            <div class="main-content_staffs">
-                <h2>スタッフ一覧</h2>
+            <div class="main-content_staff">
+                <h2>さんの勤怠</h2>
             </div>
         </div>
     </main>

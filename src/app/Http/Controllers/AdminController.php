@@ -32,12 +32,14 @@ class AdminController extends Controller
 
     public function getStaff()
     {
-        return view('staff_attendance');
+        $users = User::all();
+
+        return view('staff_list', compact('users'));
     }
 
     public function getStaffId()
     {
-        return view('staff_list');
+        return view('staff_attendance');
     }
 
     public function getAdminRequest()

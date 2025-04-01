@@ -31,8 +31,28 @@
     </header>
     <main class="main">
         <div class="main-content">
-            <div class="main-content_staff">
-                <h2>さんの勤怠</h2>
+            <div class="main-content_staffs">
+                <h2>スタッフ一覧</h2>
+            </div>
+            <div class="list-admin_content">
+                <table class="admin-table">
+                    <thead>
+                        <tr class="top_ttl">
+                            <th>名前</th>
+                            <th>メールアドレス</th>
+                            <th>月次勤怠</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
+                        <tr class="under_content">
+                            <th>{{ $user->name }}</th>
+                            <th>{{ $user->email }}</th>
+                            <th><a href="/admin/attendance/staff/{{ $user->id }}" class="detail_button">詳細</a></th>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
