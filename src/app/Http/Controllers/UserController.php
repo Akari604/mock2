@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Enums\Status;
 use Carbon\CarbonImmutable;
 use App\Models\Stamp;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -33,9 +34,19 @@ class UserController extends Controller
         return view('user_detail');
     }
 
-    public function getList()
+    public function getList(Request $request)
     {
-        return view('user_list');
+         // 当月を取得
+         $year = $request->input('year') ?? Carbon::today()->format('Y');
+         $month = $request->input('month') ?? Carbon::today()->format('m');
+         $thisMonth = Carbon::Create($year, $month, 01);
+         // 前月を取得
+         $previousMonth = $thisMonth->copy()->subMonth();
+         // 翌月を取得
+         $nextMonth = $thisMonth->copy()->addMonth();
+         $stamps = Stamp::all();
+
+        return view('user_list', compact('thisMonth', 'previousMonth', 'nextMonth', 'stamps'));
     }
 
     public function getRequest()

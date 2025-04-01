@@ -34,5 +34,38 @@
             <div class="main-content_list">
                 <h2>勤怠一覧</h2>
             </div>
+            <div class="mian-content_date">
+                <a href="{{ url()->current() . '?year=' . $previousMonth->format('Y') . '&month=' . $previousMonth->format('m') }}" class="previous">← 前日</a>
+                <p class="calender">{{ $thisMonth }}</p>
+                <a href="{{ url()->current() . '?year=' . $nextMonth->format('Y') . '&month=' . $nextMonth->format('m') }}" class="next">翌日 →</a>
+            </div>
+            <div class="list-attendance_content">
+                <table class="attendance-table">
+                    <thead>
+                        <tr class="top_ttl">
+                            <th>日付</th>
+                            <th>出勤</th>
+                            <th>退勤</th>
+                            <th>休憩</th>
+                            <th>合計</th>
+                            <th>詳細</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($stamps as $stamp)
+                        <tr class="under_content">
+                            <th>{{ $stamp->stamp_date }}</th>
+                            <th>{{ $stamp->start_work }}</th>
+                            <th>{{ $stamp->end_work }}</th>
+                            <th></th>
+                            <th></th>
+                            <th><a class="detail_button">詳細</a></th>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
