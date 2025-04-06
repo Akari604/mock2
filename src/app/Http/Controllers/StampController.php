@@ -8,6 +8,7 @@ use App\Models\Rest;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Enums\Status;
+use Carbon\CarbonImmutable;
 
 class StampController extends Controller
 {
@@ -15,10 +16,9 @@ class StampController extends Controller
     {
         // 勤務開始
         $user = Auth::user();
-        $stamp = Stamp::all();
-        $oldStamp = Stamp::where('user_id', $user->id)->latest('created_at')->first();
-        if ($oldStamp) {
-            $timestampClockIn = new Carbon($oldStamp->clockIn);
+        $user_date = Stamp::whereDate('created_at', CarbonImmutable::today())->where('user_id', $user->id)->first();
+        if ($user_date) {
+            $timestampClockIn = new Carbon($user_date->clockIn);
             $timestampDay = $timestampClockIn->startOfDay();
         } else {
             $timestamp = Stamp::create([
@@ -33,11 +33,12 @@ class StampController extends Controller
         return back();
     }
 
-    public function clockOut($stampId)
+    public function clockOut()
     {
         // 勤務終了
-        $stamp = Stamp::find($stampId);
-        $stamp->update([
+        $user = Auth::user();
+        $user_date = Stamp::whereDate('created_at', CarbonImmutable::today())->where('user_id', $user->id);
+        $user_date->update([
             'end_work' => Carbon::now(),
             'status' => 3,
         ]);

@@ -18,6 +18,6 @@ class Rest extends Model
 
     public function stamp()
     {
-        return $this->belongsTo(Stamp::class);
+        return $this->belongsTo(Stamp::class, 'stamp_id');
     }
 }

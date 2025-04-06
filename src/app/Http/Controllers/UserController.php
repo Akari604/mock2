@@ -17,16 +17,15 @@ class UserController extends Controller
         $now = CarbonImmutable::now();
         $now_format = $now->format('Y年m月d日(D)');
         $now_time = $now->format('H:i');
-        $confirm_date = Stamp::where('user_id', $user->id)->latest('created_at')->first(); 
-        $stamps = Stamp::all();
+        $user_date = Stamp::whereDate('created_at', CarbonImmutable::today())->where('user_id', $user->id)->first();
 
-        if (!$confirm_date) {
+        if (!$user_date) {
             $status = 0;
         } else {
-            $status = $confirm_date->status;
+            $status = $user_date->status;
         }   
 
-        return view('index', compact('user', 'status', 'now_format', 'now_time', 'stamps'));
+        return view('index', compact('user', 'status', 'now_format', 'now_time'));
     }
 
     public function getDetail()

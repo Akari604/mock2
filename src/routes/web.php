@@ -49,9 +49,9 @@ Route::middleware('auth:web')->group(function () {
         Route::get('/list', [UserController::class, 'getList']);
         Route::get('/{id}', [UserController::class, 'getDetail']);
         Route::get('/start/stamp', [StampController::class, 'clockIn']);
-        Route::get('/end/stamp/{stampId}', [StampController::class, 'clockOut']);
-        Route::get('/start/rest/{stampId}', [RestController::class, 'takeBreak']);
-        Route::get('/end/rest/{stampId}', [RestController::class, 'doneBreak']);
+        Route::get('/end/stamp', [StampController::class, 'clockOut']);
+        Route::get('/start/rest', [RestController::class, 'takeBreak']);
+        Route::get('/end/rest', [RestController::class, 'doneBreak']);
     });   
      Route::get('/stamp_correction_request/list', [UserController::class, 'getRequest']);
 });

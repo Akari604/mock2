@@ -32,7 +32,7 @@
     <main class="main">
         <div class="main-content">
             <div class="main-content_staff">
-                <h2>さんの勤怠</h2>
+                <h2>{{ $user->name }}さんの勤怠</h2>
             </div>
         </div>
     </main>

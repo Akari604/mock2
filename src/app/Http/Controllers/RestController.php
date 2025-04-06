@@ -8,37 +8,44 @@ use Carbon\Carbon;
 use App\Enums\Status;
 use App\Models\Rest;
 use App\Models\Stamp;
+use App\Models\User;
+use Carbon\CarbonImmutable;
 
 class RestController extends Controller
 {
-    public function takeBreak($stampId)
+    public function takeBreak()
     {
         // 休憩開始
-        $stamp = Stamp::find($stampId);
-        $stamp->update([
+        $user = Auth::user();
+        $user_date = Stamp::whereDate('created_at', CarbonImmutable::today())->where('user_id', $user->id);
+        $user_date->update([
             'status' => 2,
-        ]);   
+        ]);  
 
+        $stamp = Auth::user()->stamps()->first();
+        $stamp_id = Stamp::find($stamp->id);
         $stamps = Rest::create([
             'start_rest' => Carbon::now(),
-            'stamp_id' => $stamp->id,
+            'stamp_id' =>  $stamp_id->id,
         ]);
         
         return back();
     }
 
-    public function doneBreak($stampId)
+    public function doneBreak()
     {
         // 休憩終了
-        $stamp = Stamp::find($stampId);
-        $stamp->update([
+        $user = Auth::user();
+        $user_date = Stamp::whereDate('created_at', CarbonImmutable::today())->where('user_id', $user->id);
+        $user_date->update([
             'status' => 1,
-        ]);   
+        ]);  
 
-        $stamps = Rest::create([
+        $stamp = Auth::user()->stamps()->first();
+        $rest_date = Rest::whereDate('created_at', CarbonImmutable::today())->where('stamp_id', $stamp->id);
+        $rest_date->update([
             'end_rest' => Carbon::now(),
-            'stamp_id' => $stamp->id,
-        ]);      
+        ]);    
     
         return back();
     }
