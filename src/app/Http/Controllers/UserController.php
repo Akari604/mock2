@@ -43,9 +43,11 @@ class UserController extends Controller
          $previousMonth = $thisMonth->copy()->subMonth();
          // 翌月を取得
          $nextMonth = $thisMonth->copy()->addMonth();
-         $stamps = Stamp::all();
 
-        return view('user_list', compact('thisMonth', 'previousMonth', 'nextMonth', 'stamps'));
+         $user = Auth::user();
+         $userAttendance = Stamp::whereMonth('created_at', $thisMonth)->where('user_id', $user->id)->get();
+
+        return view('user_list', compact('thisMonth', 'previousMonth', 'nextMonth', 'user', 'userAttendance'));
     }
 
     public function getRequest()

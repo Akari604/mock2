@@ -52,7 +52,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($stamps as $stamp)
+                        @foreach($userAttendance as $stamp)
                         <tr class="under_content">
                             <th>{{ $stamp->stamp_date }}</th>
                             <th>{{ $stamp->start_work }}</th>

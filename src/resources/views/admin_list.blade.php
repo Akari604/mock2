@@ -54,14 +54,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($stamps as $stamp)
+                    @foreach($thisMonthData as $stamp)
                     <tr class="under_content">
                         <th>{{ $stamp->name }}</th>
                         <th>{{ $stamp->start_work }}</th>
                         <th>{{ $stamp->end_work }}</th>
+                        <th>{{ $stamp->end_rest - $stamp->start_rest }}</th>
                         <th></th>
-                        <th></th>
-                        <th><a class="detail_button">詳細</a></th>
+                        <th><a href="/attendance/{{ $stamp->id }}" class="detail_button">詳細</a></th>
                     </tr>
                     @endforeach
                 </tbody>

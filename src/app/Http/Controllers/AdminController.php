@@ -15,19 +15,23 @@ class AdminController extends Controller
          // 当月を取得
          $year = $request->input('year') ?? Carbon::today()->format('Y');
          $month = $request->input('month') ?? Carbon::today()->format('m');
-         $thisMonth = Carbon::Create($year, $month, 01);
+         $thisMonth = Carbon::Create($year, $month, 01, 00, 00, 00);
          // 前月を取得
          $previousMonth = $thisMonth->copy()->subMonth();
          // 翌月を取得
          $nextMonth = $thisMonth->copy()->addMonth();
-         $stamps = Stamp::all();
 
-        return view('admin_list', compact('thisMonth', 'previousMonth', 'nextMonth', 'stamps'));
+         $thisMonthData = Stamp::whereMonth('created_at', $thisMonth)->get();
+         
+        
+        return view('admin_list', compact('thisMonth', 'previousMonth', 'nextMonth', 'thisMonthData'));
     }
     
-    public function getAdminDetail()
+    public function getAdminDetail($id)
     {
-        return view('admin_detail');
+        $user = User::find($id);
+
+        return view('admin_detail', compact('user'));
     }
 
     public function getStaff()
