@@ -32,8 +32,35 @@
     <main class="main">
         <div class="main-content">
             <div class="main-content_detail">
-                <h2>勤怠詳細</h2>
+                <h2>勤怠詳細a</h2>
             </div>
+            <form class="form" action="/admin/attendance/list" method="post">
+                @csrf
+                <div class="confirm-table">
+                    <table class="confirm-table__inner">
+                        <tr class="confirm-table__row">
+                            <th class="confirm-table__header">名前</th>
+                            <td class="confirm-table__text">
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" name="last_name" value=""/>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="confirm-table__row">
+                            <th class="confirm-table__header">日付</th>
+                            <td class="confirm-table__text">
+                                <input type="date" name="date" value="" readonly />
+                                <input type="date" name="date" value="" readonly />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form__button">
+                    <button class="form__button-submit" type="submit">修正</button>
+                </div>
+            </form>
         </div>
     </main>
 </body>

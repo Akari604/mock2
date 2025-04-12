@@ -61,5 +61,29 @@ h3 {
     margin-left: 240px;
 }
 
+.condition-table {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    border-radius: 3%;
+}
+
+.top_ttl {
+    font-weight: bold;
+    color: #c0bebef6;
+    border-bottom: 1px solid #e9e7e7f6;
+}
+
+.under_content {
+    font-weight: bold;
+    color: #c0bebef6;
+}
+
+.detail_button {
+    color: #000;
+}
+
 
 

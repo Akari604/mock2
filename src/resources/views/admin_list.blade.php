@@ -33,12 +33,12 @@
     <main class="main">
         <div class="main-content">
             <div class="main-content_list">
-                <h2>{{ $thisMonth->format('Y年m月d日') }}の勤怠</h2>
+                <h2>{{ $this_month->format('Y年m月d日') }}の勤怠</h2>
             </div>
             <div class="mian-content_date">
-                <a href="{{ url()->current() . '?year=' . $previousMonth->format('Y') . '&month=' . $previousMonth->format('m') }}" class="previous">← 前日</a>
-                <p class="calender">{{ $thisMonth }}</p>
-                <a href="{{ url()->current() . '?year=' . $nextMonth->format('Y') . '&month=' . $nextMonth->format('m') }}" class="next">翌日 →</a>
+                <a href="{{ url()->current() . '?year=' . $previous_month->format('Y') . '&month=' . $previous_month->format('m') }}" class="previous">← 前日</a>
+                <p class="calender">{{ $this_month }}</p>
+                <a href="{{ url()->current() . '?year=' . $next_month->format('Y') . '&month=' . $next_month->format('m') }}" class="next">翌日 →</a>
             </div>
         </div>
         <div class="list-attendance_content">
@@ -54,7 +54,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($thisMonthData as $stamp)
+                    @foreach($this_month_data as $stamp)
                     <tr class="under_content">
                         <th>{{ $stamp->name }}</th>
                         <th>{{ $stamp->start_work }}</th>

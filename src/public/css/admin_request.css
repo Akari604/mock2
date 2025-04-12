@@ -13,7 +13,7 @@
 
 .header-button {
     position: relative;
-    left: 50%;
+    left: 40%;
     top: 15px;
 }
 
@@ -33,7 +33,7 @@
     color: #fff;
     border: none;
     background-color: #000;
-    margin-left: 240px;
+    margin-left: 355px;
     position: relative;
     top: -30px;
 }
@@ -44,4 +44,43 @@ h2 {
     padding: 0 20px;
     margin-left: 250px;
     margin-top: 70px;
+}
+
+.main-content_button {
+    display: flex;
+    margin-left: 220px;
+}
+
+h3 {
+    margin-left: 100px;
+}
+
+.main-condition {
+    border-top: 1px solid #000;
+    width: 65%;
+    margin-left: 240px;
+}
+
+.condition-table {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    border-radius: 3%;
+}
+
+.top_ttl {
+    font-weight: bold;
+    color: #c0bebef6;
+    border-bottom: 1px solid #e9e7e7f6;
+}
+
+.under_content {
+    font-weight: bold;
+    color: #c0bebef6;
+}
+
+.detail_button {
+    color: #000;
 }

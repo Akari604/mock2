@@ -44,6 +44,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 Route::middleware('auth:web')->group(function () {
+    Route::get('/stamp_correction_request/list', [UserController::class, 'getRequest']);
     Route::prefix('attendance')->group(function () {
         Route::get('/', [UserController::class, 'index'])->middleware('verified');
         Route::get('/list', [UserController::class, 'getList']);
@@ -53,7 +54,6 @@ Route::middleware('auth:web')->group(function () {
         Route::get('/start/rest', [RestController::class, 'takeBreak']);
         Route::get('/end/rest', [RestController::class, 'doneBreak']);
     });   
-     Route::get('/stamp_correction_request/list', [UserController::class, 'getRequest']);
 });
 
 Route::prefix('admin')->group(function () {
@@ -70,12 +70,13 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::middleware('auth:admin')->group(function () {
-    Route::prefix('admin')->group(function () {
-        Route::get('/attendance/list', [AdminController::class, 'getList']);
-        Route::get('/staff/list', [AdminController::class, 'getStaff']);
-        Route::get('/attendance/staff/{id}', [AdminController::class, 'getStaffId']);
-    });
     Route::get('/attendance/{id}', [AdminController::class, 'getAdminDetail']);
     Route::get('/stamp_correction_request/list', [AdminController::class, 'getAdminRequest']);
     Route::get('/stamp_correction_request/approve/{attendance_correct_request}', [AdminController::class, 'getApprove']);
+    Route::prefix('admin')->group(function () {
+        Route::get('/attendance/list', [AdminController::class, 'getList']);
+        Route::post('/attendance/list', [AdminController::class, 'postList']);
+        Route::get('/staff/list', [AdminController::class, 'getStaff']);
+        Route::get('/attendance/staff/{id}', [AdminController::class, 'getStaffId']);
+    });
 });

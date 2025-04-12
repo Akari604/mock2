@@ -35,9 +35,9 @@
                 <h2>勤怠一覧</h2>
             </div>
             <div class="mian-content_date">
-                <a href="{{ url()->current() . '?year=' . $previousMonth->format('Y') . '&month=' . $previousMonth->format('m') }}" class="previous">← 前日</a>
-                <p class="calender">{{ $thisMonth }}</p>
-                <a href="{{ url()->current() . '?year=' . $nextMonth->format('Y') . '&month=' . $nextMonth->format('m') }}" class="next">翌日 →</a>
+                <a href="{{ url()->current() . '?year=' . $previous_month->format('Y') . '&month=' . $previous_month->format('m') }}" class="previous">← 前日</a>
+                <p class="calender">{{ $this_month }}</p>
+                <a href="{{ url()->current() . '?year=' . $next_month->format('Y') . '&month=' . $next_month->format('m') }}" class="next">翌日 →</a>
             </div>
             <div class="list-attendance_content">
                 <table class="attendance-table">
@@ -52,14 +52,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($userAttendance as $stamp)
+                        @foreach($user_attendance as $stamp)
                         <tr class="under_content">
                             <th>{{ $stamp->stamp_date }}</th>
                             <th>{{ $stamp->start_work }}</th>
                             <th>{{ $stamp->end_work }}</th>
                             <th></th>
                             <th></th>
-                            <th><a class="detail_button">詳細</a></th>
+                            <th><a href="/attendance/{{ $stamp->id }}" class="detail_button">詳細</a></th>
                         </tr>
                         @endforeach
                     </tbody>

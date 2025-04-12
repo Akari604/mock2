@@ -40,8 +40,31 @@
             </div>
             <div class="main-condition">
                 <div class="main-condition_content">
+                    <table class="condition-table">
+                        <thead>
+                            <tr class="top_ttl">
+                                <th>状態</th>
+                                <th>名前</th>
+                                <th>対象日時</th>
+                                <th>申請理由</th>
+                                <th>申請日時</th>
+                                <th>詳細</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="under_content">
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th><a href="" class="detail_button">詳細</a></th>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </main>
 </body>
 </html>
