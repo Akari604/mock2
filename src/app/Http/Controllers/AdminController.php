@@ -22,19 +22,16 @@ class AdminController extends Controller
         // 翌月を取得
         $next_month = $this_month->copy()->addMonth();
 
-        $this_month_data = Stamp::whereMonth('created_at', $this_month)->get();
-
-        $this->middleware('guest')->except('logout');
-         
+        $this_month_data = Stamp::whereMonth('created_at', $this_month)->get();        
         
         return view('admin_list', compact('this_month', 'previous_month', 'next_month', 'this_month_data'));
     }
     
     public function getAdminDetail($id)
     {
-        $user = User::find($id);
+        $stamp = Stamp::find($id);
 
-        return view('admin_detail', compact('user'));
+        return view('admin_detail', compact('stamp'));
     }
 
     public function getStaff()

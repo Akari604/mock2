@@ -27,7 +27,7 @@
                     申請
                 </a>
                 <form action="/logout" class="logout_button" method="post">
-                @csrf
+                    @csrf
                     <button class="logout_button">ログアウト</button>
                 </form>
                 @endif

@@ -90,3 +90,29 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+@media screen and (max-width:1540px) {
+    .form_group-ttl {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .header-button {
+        left: 15%;
+    }
+
+    h2 {
+        margin-left: 150px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .header-button {
+        left: 10%;
+    }
+
+    h2 {
+        margin-left: 140px;
+    }
+}

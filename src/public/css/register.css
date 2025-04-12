@@ -58,3 +58,23 @@
     color: rgb(26, 120, 171);
     font-size: 1rem;
 }
+
+@media screen and (max-width:1540px) {
+    .form_group-ttl {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .form_group-ttl {
+        margin: 0 230px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .form_group-ttl {
+        font-size: 0.8rem;
+        margin: 0 220px;
+
+    }
+}

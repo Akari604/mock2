@@ -105,3 +105,58 @@ h2 {
 .detail_button {
     color: #000;
 }
+
+@media screen and (max-width:1540px) {
+    .form_group-ttl {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .header-button {
+        left: 15%;
+    }
+
+    .header-button a {
+        margin-right: 8px;
+        font-size: 1rem;
+    }
+
+    .logout_button button {
+        font-size: 1rem;
+        top: -25px;
+        margin-left: 260px;
+    }
+
+    main {
+        height: 96vh;
+    }
+
+    h2 {
+        margin-left: 150px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .header-button {
+        left: 10%;
+    }
+
+    .header-button a {
+        font-size: 1rem;
+        margin-right: 12px;
+    }
+
+    .logout_button button {
+        font-size: 1rem;
+        margin-left: 270px;
+    }
+
+    main {
+        height: 95vh;
+    }
+
+    h2 {
+        margin-left: 140px;
+    }
+}

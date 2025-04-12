@@ -105,3 +105,37 @@ h2 {
 .detail_button {
     color: #000;
 }
+
+@media screen and (max-width:1540px) {
+    .form_group-ttl {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .header-button {
+        left: 15%;
+    }
+
+    main {
+        height: 96vh;
+    }
+
+    h2 {
+        margin-left: 150px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .header-button {
+        left: 10%;
+    }
+
+    main {
+        height: 95vh;
+    }
+
+    h2 {
+        margin-left: 140px;
+    }
+}

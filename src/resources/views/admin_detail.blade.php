@@ -23,7 +23,8 @@
                 <a href="/stamp_correction_request/list" class="top_button">
                     申請一覧
                 </a>
-                <form class="logout_button">
+                <form action="/admin/logout" class="logout_button" method="post">
+                    @csrf
                     <button class="logout_button">ログアウト</button>
                 </form>
             </div>
@@ -32,7 +33,7 @@
     <main class="main">
         <div class="main-content">
             <div class="main-content_detail">
-                <h2>勤怠詳細a</h2>
+                <h2>勤怠詳細</h2>
             </div>
             <form class="form" action="/admin/attendance/list" method="post">
                 @csrf
@@ -43,7 +44,7 @@
                             <td class="confirm-table__text">
                                 <div class="row">
                                     <div class="col">
-                                        <input type="text" name="last_name" value=""/>
+                                        {{ $stamp->name }}
                                     </div>
                                 </div>
                             </td>
@@ -51,8 +52,36 @@
                         <tr class="confirm-table__row">
                             <th class="confirm-table__header">日付</th>
                             <td class="confirm-table__text">
-                                <input type="date" name="date" value="" readonly />
-                                <input type="date" name="date" value="" readonly />
+                                {{ $stamp->stamp_date }}
+                            </td>
+                        </tr>
+                        <tr class="confirm-table__row">
+                            <th class="confirm-table__header">出勤・退勤</th>
+                            <td class="confirm-table__text">
+                                <input type="time" name="time" placeholder="{{ $stamp->start_work }}"/>
+                                <input type="time" name="time" placeholder="{{ $stamp->end_work }}"/>
+                            </td>
+                        </tr>
+                        <tr class="confirm-table__row">
+                            <th class="confirm-table__header">休憩</th>
+                            <td class="confirm-table__text">
+                                <input type="time" name="time" value=""/>
+                                <span>～</span>
+                                <input type="time" name="time" value=""/>
+                            </td>
+                        </tr>
+                        <tr class="confirm-table__row">
+                            <th class="confirm-table__header">休憩２</th>
+                            <td class="confirm-table__text">
+                                <input type="time" name="time" value=""/>
+                                <span>～</span>
+                                <input type="time" name="time" value=""/>
+                            </td>
+                        </tr>
+                        <tr class="confirm-table__row">
+                            <th class="confirm-table__header">備考</th>
+                            <td class="confirm-table__text">
+                                <input type="text" name="time" value=""/>
                             </td>
                         </tr>
                     </table>

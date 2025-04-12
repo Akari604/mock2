@@ -51,9 +51,6 @@ class UserController extends Controller
 
         $start_stamps = Stamp::select('start_work')->where('user_id', $user->id)->get();
         $end_stamps = Stamp::select('end_work')->where('user_id', $user->id)->get();
-        
-        // $hours = floor($diffInSeconds / 3600);
-        // $minutes = floor(($diffInSeconds % 3600) / 60);
 
         return view('user_list', compact('this_month', 'previous_month', 'next_month', 'user', 'user_attendance', 'start_stamps', 'end_stamps'));
     }
