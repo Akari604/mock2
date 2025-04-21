@@ -58,10 +58,6 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(10)->by($email . $request->ip());
         });
 
-        Fortify::verifyEmailView(function () {
-            return view('auth.verify_email');
-        });
-
         $this->app->bind(FortifyLoginRequest::class, AdminLoginRequest::class);
         $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
         $this->app->bind(FortifyRegisterRequest::class, RegisterRequest::class);

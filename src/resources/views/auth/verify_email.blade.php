@@ -23,7 +23,7 @@
                     <p>メール認証を完了してください。</p>
                 </div>
                 <div class="certification_button">
-                    <form action="/email/verify/{id}/{hash}" class="link-certification" method="get"> 
+                    <form action="/email/verify/{id}/{hash}" class="link-certification" method="post"> 
                         @csrf
                         <button class="button-certification"  type="submit">認証はこちら</button>
                     </form>
