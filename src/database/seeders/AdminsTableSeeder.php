@@ -17,23 +17,23 @@ class AdminsTableSeeder extends Seeder
         DB::table('admins')->insert([
             [
                 'email' => 'admin@example.com',
-                'password' => 'admin123',
+                'password' => bcrypt('admin123'),
             ],
             [
                 'email' => 'test@example.com',
-                'password' => 'test1234',
+                'password' => bcrypt('test1234'),
             ],
             [
                 'email' => 'user@example.com',
-                'password' => 'user1234',
+                'password' => bcrypt('user1234'),
             ],
             [
                 'email' => 'email@example.com',
-                'password' => 'email123',
+                'password' => bcrypt('email123'),
             ],
             [
                 'email' => 'dmain@example.com',
-                'password' => 'dmain123',
+                'password' => bcrypt('dmain123'),
             ],
         ]);
     }
